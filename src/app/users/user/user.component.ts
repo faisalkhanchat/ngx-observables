@@ -1,34 +1,28 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-
+import { Subscription } from 'rxjs';
+import { UsersService } from '../users.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit, OnDestroy {
-  user: { id: number, name: string };
-  paramSubscription: Subscription;
-  constructor(public route: ActivatedRoute) { }
+  private user: any;
+  id: number;
+  constructor(public route: ActivatedRoute, private usersService: UsersService) { }
 
   // param observables
   ngOnInit() {
-    this.user = {
-      id: this.route.snapshot.params['id'],
-      name: this.route.snapshot.params['name'],
-    };
     this.route.params.subscribe(
       (params: Params) => {
-        this.user.id = params['id'];
-        this.user.name = params['name'];
+        this.id = +params['id'];
+        console.log(this.id);
+        this.user = this.usersService.getUser(this.id);
       }
     );
   }
   ngOnDestroy() {
-    // routing observables
-    // this.paramSubscription.unsubscribe();
-
   }
 
 }

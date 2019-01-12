@@ -11,7 +11,7 @@ const appRoute: Routes = [
   { path: '', component: HomeComponent },
   {
     path: 'users', component: UsersComponent, children: [
-      { path: ':id/:name', component: UserComponent },
+      { path: ':id', component: UserComponent },
     ]
   },
   // { path: 'not-found', component: PageNotFoundComponent },
