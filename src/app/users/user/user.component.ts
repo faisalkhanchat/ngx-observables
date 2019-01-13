@@ -24,5 +24,8 @@ export class UserComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
   }
+  onActivated() {
+    this.usersService.userActivated.next(this.id);
+  }
 
 }

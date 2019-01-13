@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
       <a [routerLink]="['/users', user.id]" routerLinkActive="active"  class="list-group-item" *ngFor="let user of users">
-        {{user.name}}
+        {{user.name}} {{  user1Activated == user.id ?  '(activated)' : '' || user2Activated == user.id ?  '(activated)' : ''}}
       </a>
     </div>
   </div>

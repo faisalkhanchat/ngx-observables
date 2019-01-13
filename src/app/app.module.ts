@@ -14,7 +14,6 @@ import { AuthGuard } from './auth.guard';
 import { CanDeactivateGaurd } from './page-not-found/can-deactivate-gaurd.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
